@@ -1,5 +1,6 @@
 const connection = require('./connection')
 
+// Read
 function getResources(db = connection) {
   return db('resources').select(
     'id',
@@ -14,6 +15,21 @@ function getResources(db = connection) {
   )
 }
 
+function getResource(id, db = connection) {
+  return db('resources').select().where('id', id).first()
+}
+
+// Create
+// function addResource(resource, db = connection) {
+//   return db('resources').insert(resource)
+// }
+
+// Update
+
+// Delete
+
 module.exports = {
   getResources,
+  getResource,
+  // addResource,
 }
