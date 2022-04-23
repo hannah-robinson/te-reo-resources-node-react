@@ -20,9 +20,9 @@ function getResource(id, db = connection) {
 }
 
 // Create
-// function addResource(resource, db = connection) {
-//   return db('resources').insert(resource)
-// }
+function addResource(resource, db = connection) {
+  return db('resources').insert(resource)
+}
 
 // Update
 
@@ -31,5 +31,5 @@ function getResource(id, db = connection) {
 module.exports = {
   getResources,
   getResource,
-  // addResource,
+  addResource,
 }

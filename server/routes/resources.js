@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getResource(id)
     .then((resource) => {
-      console.log(resource)
       res.json(resource)
     })
     .catch((err) => {
@@ -32,5 +31,21 @@ router.get('/:id', (req, res) => {
 })
 
 // POST /api/v1/resource
+router.post('/', (req, res) => {
+  const resource = req.body
+  console.log(resource)
+  db.addResource(resource)
+    .then((ids) => {
+      const newResourceId = ids[0]
+      return db.getResource(newResourceId)
+    })
+    .then((newResource) => {
+      res.json(newResource)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 module.exports = router
