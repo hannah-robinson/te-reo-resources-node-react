@@ -1,13 +1,13 @@
 const express = require('express')
 
-const db = require('..db/resources')
+const db = require('../db/resources')
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
   db.getResources()
     .then((results) => {
-      res.json({ resources: results.map((resource) => resource.resourceName) })
+      res.json({ resources: results.map((resource) => resource) })
       return null
     })
     .catch((err) => {
