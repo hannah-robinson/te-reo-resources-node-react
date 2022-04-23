@@ -8,9 +8,9 @@ function Header() {
     <div>
       <header className="primary-header flex">
         <div className="logo">
-          <a href="/">
+          <Link to={'/'}>
             <i className="fa-solid fa-comment-dots"></i>
-          </a>
+          </Link>
         </div>
         <nav>
           <ul
