@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
   await knex('resources').insert([
     {
       id: 1,
-      name: 'Te Aka Māori Dictionary',
+      resource_name: 'Te Aka Māori Dictionary',
       url: 'https://maoridictionary.co.nz/',
       image: '/images/te-aka.png',
       description:
@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 2,
-      name: 'Drops',
+      resource_name: 'Drops',
       url: 'https://languagedrops.com/language/learn-maori',
       image: '/images/drops.png',
       description: 'Learn 2,000+ Māori words with Drops.',
@@ -31,7 +31,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 3,
-      name: 'Toro Mai',
+      resource_name: 'Toro Mai',
       url: 'https://toromai.massey.ac.nz/',
       image: '/images/toromai.png',
       description:
@@ -43,7 +43,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 4,
-      name: 'Te Karere (video)',
+      resource_name: 'Te Karere (video)',
       url: 'https://www.youtube.com/user/tekareremaorinews',
       image: '/images/te-karere.png',
       description:
@@ -54,8 +54,8 @@ exports.seed = async function (knex) {
       free: true,
     },
     {
-      id: 4,
-      name: 'Te Karere (audio)',
+      id: 5,
+      resource_name: 'Te Karere (audio)',
       url: 'https://soundcloud.com/tekarere',
       image: '/images/te-karere-audio.png',
       description:
