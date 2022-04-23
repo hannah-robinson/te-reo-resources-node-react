@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('resources', (table) => {
-    table.increments()
+    table.increments('id')
     table.string('resource_name')
     table.string('url')
     table.string('image')
