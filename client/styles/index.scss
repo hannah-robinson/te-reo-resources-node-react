@@ -208,7 +208,7 @@ h3 {
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
-  grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(35ch, 1fr));
   justify-content: center;
 }
 
@@ -234,7 +234,7 @@ h3 {
   border: 0;
 }
 
-/* ===================
+/* =====================
        6. Layout
     ==================== */
 main {
@@ -354,7 +354,7 @@ footer a:focus {
   padding: 1rem;
   border: 1px solid hsl(var(--clr-light-grey));
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-  /* max-width: 35ch; */
+  // max-width: 50ch;
   /* max-width: 100%; */
   display: block;
   border-radius: 1rem;
@@ -372,6 +372,44 @@ footer a:focus {
 
 .card-details {
   padding-block: 1rem;
+}
+
+.card a {
+  display: inline-block;
+  border-radius: 10px;
+  padding-block: 5px;
+  padding-inline: 10px;
+  border: 2px hsl(var(--clr-accent), 0.8);
+  background-color: hsl(var(--clr-accent), 0.8);
+  color: hsl(var(--clr-white));
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.card a:hover,
+.card a:focus {
+  text-decoration: none;
+  transform: scale(1.05);
+  transition: transform 500ms ease;
+  background-color: hsl(var(--clr-accent), 0.7);
+  border: 2px hsl(var(--clr-accent), 0.7);
+}
+
+.crud-links {
+  a {
+    border: 2px solid grey;
+    background-color: hsl(var(--clr-white));
+    color: grey;
+    padding: 4px;
+    font-size: var(--fs-200);
+  }
+
+  a:hover,
+  a:focus {
+    background-color: grey;
+    border: 2px solid grey;
+    color: hsl(var(--clr-white));
+  }
 }
 
 /* Forms */
