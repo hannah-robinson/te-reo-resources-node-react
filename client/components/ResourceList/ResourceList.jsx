@@ -20,6 +20,7 @@ function ResourceList() {
           key={resource.id}
           resourceName={resource.resourceName}
           image={resource.image}
+          description={resource.description}
           languageLevel={resource.languageLevel}
           medium={resource.medium}
           cost={resource.cost}
