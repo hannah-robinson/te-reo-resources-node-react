@@ -27,9 +27,13 @@ function addResource(resource, db = connection) {
 // Update
 
 // Delete
+// function deleteResource(id, db = connection) {
+//   return db('resources').del().where('id', id)
+// }
 
 module.exports = {
   getResources,
   getResource,
   addResource,
+  // deleteResource,
 }

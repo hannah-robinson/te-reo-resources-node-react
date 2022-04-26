@@ -6,6 +6,12 @@ export function getResources() {
   return request.get(resourcesUrl).then((response) => response.body.resources)
 }
 
+// export function getResource(id) {
+//   return request
+//     .get(resourcesUrl + id)
+//     .then((response) => response.body.resources)
+// }
+
 export function postResource(resource) {
   return request
     .post(resourcesUrl)

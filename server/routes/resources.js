@@ -33,8 +33,24 @@ router.get('/:id', (req, res) => {
 // POST /api/v1/resource
 router.post('/', (req, res) => {
   const resource = req.body
-  console.log(resource)
-  db.addResource(resource)
+  const {
+    resourceName: resource_name,
+    description,
+    url,
+    image,
+    languageLevel: language_level,
+    medium,
+    cost,
+  } = resource
+  db.addResource({
+    resource_name,
+    description,
+    url,
+    image,
+    language_level,
+    medium,
+    cost,
+  })
     .then((ids) => {
       const newResourceId = ids[0]
       return db.getResource(newResourceId)
@@ -47,5 +63,22 @@ router.post('/', (req, res) => {
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
+
+// DELETE /api/v1/resource
+// router.delete('/:id', (req, res) => {
+//   const id = Number(req.params.id)
+//   db.deleteResource(id)
+//     .then(() => {
+//       db.getResources()
+//     })
+//     .then((results) => {
+//       res.json({ resources: results.map((resource) => resource) })
+//       return null
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//       res.status(500).json({ message: 'Something went wrong' })
+//     })
+// })
 
 module.exports = router
