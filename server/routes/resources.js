@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
   db.getResource(id)
     .then((resource) => {
       res.json(resource)
+      return null
     })
     .catch((err) => {
       console.log(err)
