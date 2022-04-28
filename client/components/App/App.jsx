@@ -9,6 +9,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import ResourceList from '../ResourceList/ResourceList'
 import ResourceForm from '../ResourceForm/ResourceForm'
+import SingleResource from '../SingleResource/SingleResource'
 
 function App() {
   // const [resources, setResources] = useState([])
@@ -37,7 +38,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<ResourceList />} />
-          {/* <Route path=":id" element={<SingleResource />} /> */}
+          <Route path="/:id" element={<SingleResource />} />
           <Route
             path="/add"
             element={<ResourceForm submitResource={submitResource} />}
