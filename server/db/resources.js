@@ -16,7 +16,20 @@ function getResources(db = connection) {
 }
 
 function getResource(id, db = connection) {
-  return db('resources').select().where('id', id).first()
+  return db('resources')
+    .select(
+      'id',
+      'resource_name as resourceName',
+      'url',
+      'image',
+      'description',
+      'cost',
+      'language_level as languageLevel',
+      'medium',
+      'free'
+    )
+    .where('id', id)
+    .first()
 }
 
 // Create
