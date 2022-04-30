@@ -66,20 +66,20 @@ router.post('/', (req, res) => {
 })
 
 // DELETE /api/v1/resource
-// router.delete('/:id', (req, res) => {
-//   const id = Number(req.params.id)
-//   db.deleteResource(id)
-//     .then(() => {
-//       db.getResources()
-//     })
-//     .then((results) => {
-//       res.json({ resources: results.map((resource) => resource) })
-//       return null
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
+router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.deleteResource(id)
+    .then(() => {
+      db.getResources()
+    })
+    .then((results) => {
+      res.json({ resources: results.map((resource) => resource) })
+      return null
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 module.exports = router

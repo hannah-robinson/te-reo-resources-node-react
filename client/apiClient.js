@@ -17,3 +17,10 @@ export function postResource(resource) {
     .send(resource)
     .then((response) => response.body)
 }
+
+export function deleteResource(id) {
+  return request
+    .del(resourcesUrl + id)
+    .send(id)
+    .then((response) => response.body)
+}
