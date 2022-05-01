@@ -22,5 +22,5 @@ export function deleteResource(id) {
   return request
     .del(resourcesUrl + id)
     .send(id)
-    .then((response) => response.body)
+    .then((response) => response.body.resources)
 }

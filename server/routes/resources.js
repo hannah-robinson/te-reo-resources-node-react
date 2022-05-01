@@ -70,7 +70,7 @@ router.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.deleteResource(id)
     .then(() => {
-      db.getResources()
+      return db.getResources()
     })
     .then((results) => {
       res.json({ resources: results.map((resource) => resource) })
