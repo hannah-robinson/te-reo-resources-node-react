@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { fetchResource } from '../../actions'
 
@@ -11,9 +11,6 @@ function EditResource(props) {
   const dispatch = useDispatch()
 
   const resource = useSelector((state) => state.resource)
-
-  // const { resourceName, description, url, image, languageLevel, medium, cost } =
-  //   resource
 
   useEffect(() => {
     dispatch(fetchResource(params.id))
@@ -33,8 +30,6 @@ function EditResource(props) {
     cost: '',
   })
 
-  console.log(formData)
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -46,6 +41,10 @@ function EditResource(props) {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.submitEditedResource(params.id, formData)
+    const successMessage = document.getElementById('successMessage')
+    successMessage.classList.remove('invisible')
+    const goHome = document.getElementById('goHome')
+    goHome.classList.remove('invisible')
   }
 
   return (
@@ -111,6 +110,14 @@ function EditResource(props) {
           ></input>
         </p>
         <button onClick={handleSubmit}>Save</button>
+        <p id="successMessage" className="updateSuccess invisible">
+          Resource updated!
+        </p>
+        <p id="goHome" className="invisible">
+          <Link to="/" className="btn">
+            Go back to Resource List
+          </Link>
+        </p>
       </form>
     </div>
   )

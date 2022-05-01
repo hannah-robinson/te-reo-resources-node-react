@@ -412,6 +412,30 @@ footer a:focus {
   }
 }
 
+a.btn {
+  display: inline-block;
+  border-radius: 10px;
+  padding-block: 5px;
+  padding-inline: 10px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  border: 2px solid grey;
+  background-color: hsl(var(--clr-white));
+  color: grey;
+  padding: 4px;
+  font-size: var(--fs-200);
+}
+
+a.btn:hover,
+a.btn:focus {
+  background-color: grey;
+  border: 2px solid grey;
+  color: hsl(var(--clr-white));
+  text-decoration: none;
+  transform: scale(1.05);
+  transition: transform 500ms ease;
+}
+
 /* Forms */
 
 main {
@@ -441,6 +465,14 @@ main {
   cursor: pointer;
   background-color: hsl(var(--clr-accent), 0.7);
   transform: scale(1.05);
+}
+
+.updateSuccess {
+  color: green;
+}
+
+.invisible {
+  display: none;
 }
 
 .col-25 {
