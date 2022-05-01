@@ -38,6 +38,9 @@ function addResource(resource, db = connection) {
 }
 
 // Update
+function updateResource(id, resource, db = connection) {
+  return db('resources').where('id', id).update(resource)
+}
 
 // Delete
 function deleteResource(id, db = connection) {
@@ -45,8 +48,9 @@ function deleteResource(id, db = connection) {
 }
 
 module.exports = {
+  addResource,
   getResources,
   getResource,
-  addResource,
+  updateResource,
   deleteResource,
 }

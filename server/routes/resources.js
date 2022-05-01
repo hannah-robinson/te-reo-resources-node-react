@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// POST /api/v1/resource
+// POST /api/v1/resources
 router.post('/', (req, res) => {
   const resource = req.body
   const {
@@ -68,7 +68,45 @@ router.post('/', (req, res) => {
     })
 })
 
-// DELETE /api/v1/resource
+// PATCH /api/v1/resources/1
+router.patch('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const formData = req.body
+  const {
+    resourceName: resource_name,
+    description,
+    url,
+    image,
+    languageLevel: language_level,
+    medium,
+    cost,
+    free,
+  } = formData
+
+  db.updateResource(id, {
+    resource_name,
+    description,
+    url,
+    image,
+    language_level,
+    medium,
+    cost,
+    free,
+  })
+    .then(() => {
+      return db.getResource(id)
+    })
+    .then((resource) => {
+      res.json(resource)
+      return null
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
+// DELETE /api/v1/resources/1
 router.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.deleteResource(id)
