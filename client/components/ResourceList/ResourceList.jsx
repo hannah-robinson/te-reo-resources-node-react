@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchResources } from '../../actions'
 
+import { deleteResource } from '../../apiClient'
+
 // import style from './ResourceList.module.scss'
 
 import Resource from '../Resource/Resource'
@@ -12,7 +14,19 @@ function ResourceList() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchResources())
-  }, [])
+  }, [resources])
+
+  const delResource = (id) => {
+    return deleteResource(id)
+      .then((resources) => {
+        dispatch()
+        return null
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return (
     <div className="container grid">
       {resources.map((resource) => (
@@ -26,6 +40,7 @@ function ResourceList() {
           cost={resource.cost}
           url={resource.url}
           id={resource.id}
+          delResource={delResource}
         />
       ))}
     </div>

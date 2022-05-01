@@ -11,7 +11,13 @@ function Resource({
   description,
   cost,
   url,
+  delResource,
 }) {
+  const handleDelete = (evt) => {
+    evt.preventDefault()
+    delResource(id)
+  }
+
   return (
     <div className="card" key={id}>
       <h2>{resourceName}</h2>
@@ -38,7 +44,10 @@ function Resource({
         Visit site <i className="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
       <div className="crud-links">
-        <a href={`/${id}/edit`}>Edit</a> <a href={`/${id}/delete`}>Delete</a>
+        <a href={`/${id}/edit`}>Edit</a>{' '}
+        <a id={id} onClick={handleDelete}>
+          Delete
+        </a>
       </div>
     </div>
   )

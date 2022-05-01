@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 
 import { fetchResource } from '../../actions'
 
+import { deleteResourceSingle } from '../../apiClient'
+
 import Resource from '../Resource/Resource'
 
 function SingleResource() {
@@ -12,9 +14,20 @@ function SingleResource() {
 
   useEffect(() => {
     dispatch(fetchResource(params.id))
-  }, [])
+  }, [resource])
 
   const resource = useSelector((state) => state.resource)
+
+  // const delResource = (id) => {
+  //   return deleteResourceSingle(id)
+  //     .then((resources) => {
+  //       dispatch()
+  //       return null
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
 
   return (
     <div className="container">
@@ -28,6 +41,7 @@ function SingleResource() {
         cost={resource.cost}
         url={resource.url}
         id={resource.id}
+        // delResource={delResource}
       />
     </div>
   )

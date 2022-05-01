@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
   db.getResource(id)
     .then((resource) => {
       if (!resource) {
-        res.status(404)
+        res.status(404).json({ message: 'This page does not exist' })
       }
       res.json(resource)
       return null

@@ -1,7 +1,9 @@
-import { getResources, getResource } from '../apiClient'
+import { getResources, getResource, deleteResource } from '../apiClient'
 
 export const SET_RESOURCES = 'SET_RESOURCES'
 export const SET_RESOURCE = 'SET_RESOURCE'
+export const DELETE_RESOURCE = 'DELETE_RESOURCE'
+export const SET_ERROR = 'SET_ERROR'
 
 export function setResources(resources) {
   return {
@@ -17,20 +19,58 @@ export function setResource(resource) {
   }
 }
 
+export function deleteResourceAction(id) {
+  return {
+    type: DELETE_RESOURCE,
+    payload: id,
+  }
+}
+
+export function setError(errMessage) {
+  return {
+    type: SET_ERROR,
+    errMessage,
+  }
+}
+
 export function fetchResources() {
   return (dispatch) => {
-    return getResources().then((resources) => {
-      dispatch(setResources(resources))
-      return null
-    })
+    return getResources()
+      .then((resources) => {
+        dispatch(setResources(resources))
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
   }
 }
 
 export function fetchResource(id) {
   return (dispatch) => {
-    return getResource(id).then((resource) => {
-      dispatch(setResource(resource))
-      return null
-    })
+    return getResource(id)
+      .then((resource) => {
+        dispatch(setResource(resource))
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
+  }
+}
+
+export function removeResource(id) {
+  return (dispatch) => {
+    return deleteResource(id)
+      .then(() => {
+        fetchResources()
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
   }
 }
