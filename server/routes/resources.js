@@ -22,6 +22,9 @@ router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getResource(id)
     .then((resource) => {
+      if (!resource) {
+        res.status(404)
+      }
       res.json(resource)
       return null
     })
