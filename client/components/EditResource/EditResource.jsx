@@ -14,7 +14,7 @@ function EditResource(props) {
 
   useEffect(() => {
     dispatch(fetchResource(params.id))
-  }, [formData])
+  }, [])
 
   useEffect(() => {
     setFormData({ ...resource })
@@ -110,14 +110,6 @@ function EditResource(props) {
           ></input>
         </p>
         <button onClick={handleSubmit}>Save</button>
-        <p id="successMessage" className="updateSuccess invisible">
-          Resource updated!
-        </p>
-        <p id="goHome" className="invisible">
-          <Link to="/" className="btn">
-            Go back to Resource List
-          </Link>
-        </p>
       </form>
     </div>
   )

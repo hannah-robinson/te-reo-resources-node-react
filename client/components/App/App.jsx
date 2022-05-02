@@ -1,31 +1,46 @@
 import React from 'react'
-// import React, { useState, useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
-import { postResource } from '../../apiClient'
-// import { fetchResources } from '../../actions'
+import { useDispatch } from 'react-redux'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { postResource, updateResource } from '../../apiClient'
+
+import {
+  fetchResource,
+  setResource,
+  updateResource as updateResourceAction,
+} from '../../actions'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import ResourceList from '../ResourceList/ResourceList'
-import ResourceForm from '../ResourceForm/ResourceForm'
+import AddResource from '../AddResource/AddResource'
+import EditResource from '../EditResource/EditResource'
 import SingleResource from '../SingleResource/SingleResource'
 
 function App() {
-  // const [resources, setResources] = useState([])
-
-  // const resources = useSelector((state) => state.resources)
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(fetchResources())
-  // }, [])
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const submitResource = (resource) => {
     return postResource(resource)
       .then((newResource) => {
         console.log('submit resource', newResource)
         // setResources([...resources, newResource])
+        // dispatch(setResource(resource))
         return null
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  const submitEditedResource = (id, resource) => {
+    return updateResource(id, resource)
+      .then((resource) => {
+        dispatch(updateResourceAction(resource))
+        return null
+      })
+      .then(() => {
+        navigate(`/${resource.id}`)
       })
       .catch((err) => {
         console.log(err)
@@ -40,8 +55,14 @@ function App() {
           <Route path="/" element={<ResourceList />} />
           <Route path="/:id" element={<SingleResource />} />
           <Route
+            path="/:id/edit"
+            element={
+              <EditResource submitEditedResource={submitEditedResource} />
+            }
+          />
+          <Route
             path="/add"
-            element={<ResourceForm submitResource={submitResource} />}
+            element={<AddResource submitResource={submitResource} />}
           />
         </Routes>
       </main>

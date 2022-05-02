@@ -3,6 +3,7 @@ import { getResources, getResource, deleteResource } from '../apiClient'
 export const SET_RESOURCES = 'SET_RESOURCES'
 export const SET_RESOURCE = 'SET_RESOURCE'
 export const DELETE_RESOURCE = 'DELETE_RESOURCE'
+export const UPDATE_RESOURCE = 'UPDATE_RESOURCE'
 export const SET_ERROR = 'SET_ERROR'
 
 export function setResources(resources) {
@@ -23,6 +24,13 @@ export function deleteResourceAction(id) {
   return {
     type: DELETE_RESOURCE,
     payload: id,
+  }
+}
+
+export function updateResource(resource) {
+  return {
+    type: UPDATE_RESOURCE,
+    payload: { resource },
   }
 }
 

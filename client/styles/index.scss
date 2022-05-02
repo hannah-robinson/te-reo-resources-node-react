@@ -412,7 +412,8 @@ footer a:focus {
   }
 }
 
-a.btn {
+.btn,
+Link .btn {
   display: inline-block;
   border-radius: 10px;
   padding-block: 5px;
@@ -426,8 +427,8 @@ a.btn {
   font-size: var(--fs-200);
 }
 
-a.btn:hover,
-a.btn:focus {
+.btn:hover,
+.btn:focus {
   background-color: grey;
   border: 2px solid grey;
   color: hsl(var(--clr-white));
@@ -465,14 +466,6 @@ main {
   cursor: pointer;
   background-color: hsl(var(--clr-accent), 0.7);
   transform: scale(1.05);
-}
-
-.updateSuccess {
-  color: green;
-}
-
-.invisible {
-  display: none;
 }
 
 .col-25 {
