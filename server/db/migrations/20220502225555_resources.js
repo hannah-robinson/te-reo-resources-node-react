@@ -12,7 +12,6 @@ exports.up = function (knex) {
     table.string('cost')
     table.string('language_level')
     table.string('medium')
-    table.boolean('free')
   })
 }
 
