@@ -20,9 +20,9 @@ function Header() {
             <li key="home">
               <Link to={'/'}>All Resources</Link>
             </li>
-            {/* <li>
-              <a href="/free">Free Resources</a>
-            </li> */}
+            <li key="add">
+              <Link to={'/add'}>Add a Resource</Link>
+            </li>
           </ul>
         </nav>
       </header>
