@@ -4,8 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { postResource, updateResource } from '../../apiClient'
 
 import {
-  fetchResource,
-  setResource,
+  postResourceAction,
   updateResource as updateResourceAction,
 } from '../../actions'
 
@@ -22,10 +21,8 @@ function App() {
 
   const submitResource = (resource) => {
     return postResource(resource)
-      .then((newResource) => {
-        console.log('submit resource', newResource)
-        // setResources([...resources, newResource])
-        // dispatch(setResource(resource))
+      .then((resource) => {
+        dispatch(postResourceAction(resource))
         return null
       })
       .catch((err) => {
