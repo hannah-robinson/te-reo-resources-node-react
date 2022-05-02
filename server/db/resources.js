@@ -10,8 +10,7 @@ function getResources(db = connection) {
     'description',
     'cost',
     'language_level as languageLevel',
-    'medium',
-    'free'
+    'medium'
   )
 }
 
@@ -25,8 +24,7 @@ function getResource(id, db = connection) {
       'description',
       'cost',
       'language_level as languageLevel',
-      'medium',
-      'free'
+      'medium'
     )
     .where('id', id)
     .first()
