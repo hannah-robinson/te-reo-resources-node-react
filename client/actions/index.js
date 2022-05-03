@@ -4,6 +4,7 @@ export const SET_RESOURCES = 'SET_RESOURCES'
 export const SET_RESOURCE = 'SET_RESOURCE'
 export const DELETE_RESOURCE = 'DELETE_RESOURCE'
 export const UPDATE_RESOURCE = 'UPDATE_RESOURCE'
+export const POST_RESOURCE = 'POST_RESOURCE'
 export const SET_ERROR = 'SET_ERROR'
 
 export function setResources(resources) {
@@ -30,6 +31,13 @@ export function deleteResourceAction(id) {
 export function updateResource(resource) {
   return {
     type: UPDATE_RESOURCE,
+    payload: { resource },
+  }
+}
+
+export function postResourceAction(resource) {
+  return {
+    type: POST_RESOURCE,
     payload: { resource },
   }
 }
@@ -69,16 +77,35 @@ export function fetchResource(id) {
   }
 }
 
+// export function removeResource(id) {
+//   return (dispatch) => {
+//     return deleteResource(id)
+//       .then(() => {
+//         fetchResources()
+//         return null
+//       })
+//       .catch((err) => {
+//         dispatch(setError(err.message))
+//         console.log(err)
+//       })
+//   }
+// }
+
 export function removeResource(id) {
   return (dispatch) => {
-    return deleteResource(id)
-      .then(() => {
-        fetchResources()
-        return null
-      })
-      .catch((err) => {
-        dispatch(setError(err.message))
-        console.log(err)
-      })
+    return (
+      deleteResource(id)
+        .then(() => {
+          dispatch(deleteResourceAction(id))
+        })
+        // .then(() => {
+        //   fetchResources()
+        //   return null
+        // })
+        .catch((err) => {
+          dispatch(setError(err.message))
+          console.log(err)
+        })
+    )
   }
 }
