@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchResources } from '../../actions'
-
+import { fetchResources, removeResource } from '../../actions'
 import { deleteResource } from '../../apiClient'
 
 // import style from './ResourceList.module.scss'
@@ -18,8 +17,8 @@ function ResourceList() {
 
   const delResource = (id) => {
     return deleteResource(id)
-      .then((resources) => {
-        dispatch()
+      .then((id) => {
+        dispatch(removeResource(id))
         return null
       })
       .catch((err) => {

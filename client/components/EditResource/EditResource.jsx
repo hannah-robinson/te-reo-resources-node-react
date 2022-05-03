@@ -41,10 +41,6 @@ function EditResource(props) {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.submitEditedResource(params.id, formData)
-    const successMessage = document.getElementById('successMessage')
-    successMessage.classList.remove('invisible')
-    const goHome = document.getElementById('goHome')
-    goHome.classList.remove('invisible')
   }
 
   return (

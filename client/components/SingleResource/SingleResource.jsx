@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
-import { fetchResource } from '../../actions'
-
-import { deleteResourceSingle } from '../../apiClient'
-
+import { fetchResource, removeResource } from '../../actions'
+import { deleteResource } from '../../apiClient'
 import Resource from '../Resource/Resource'
 
 function SingleResource() {
   const params = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchResource(params.id))
@@ -18,16 +17,32 @@ function SingleResource() {
 
   const resource = useSelector((state) => state.resource)
 
-  // const delResource = (id) => {
-  //   return deleteResourceSingle(id)
-  //     .then((resources) => {
-  //       dispatch()
-  //       return null
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
+  const delResource = (id) => {
+    return deleteResource(id)
+      .then((id) => {
+        dispatch(removeResource(id))
+        return null
+      })
+      .then(() => {
+        navigate('/')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+  const submitEditedResource = (id, resource) => {
+    return updateResource(id, resource)
+      .then((resource) => {
+        dispatch(updateResourceAction(resource))
+        return null
+      })
+      .then(() => {
+        navigate(`/${resource.id}`)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   return (
     <div className="container">
@@ -41,7 +56,7 @@ function SingleResource() {
         cost={resource.cost}
         url={resource.url}
         id={resource.id}
-        // delResource={delResource}
+        delResource={delResource}
       />
     </div>
   )
