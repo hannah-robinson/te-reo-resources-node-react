@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import { fetchResource, removeResource } from '../../actions'
+import { fetchResource, fetchResources, removeResource } from '../../actions'
 import { deleteResource } from '../../apiClient'
 import Resource from '../Resource/Resource'
 
@@ -11,11 +11,25 @@ function SingleResource() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    dispatch(fetchResource(params.id))
-  }, [resource])
+  // useEffect(() => {
+  //   dispatch(fetchResource(params.id))
+  // }, [])
 
-  const resource = useSelector((state) => state.resource)
+  // const resource = useSelector((state) => state.resource)
+
+  // useEffect(() => {
+  //   dispatch(fetchResources())
+  // }, [])
+
+  const currentResourceId = params.id
+  const resources = useSelector((state) => state.resources)
+  const resource = resources.filter(
+    (resource) => resource.id == currentResourceId
+  )
+
+  // console.log('resources', resources)
+  // console.log('resource', resource)
+  // console.log('currentResourceId', currentResourceId)
 
   const delResource = (id) => {
     return deleteResource(id)
