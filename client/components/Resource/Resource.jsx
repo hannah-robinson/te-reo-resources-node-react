@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // import style from './Resource.module.scss'
 
@@ -44,7 +45,7 @@ function Resource({
         Visit site <i className="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
       <div className="crud-links">
-        <a href={`/${id}/edit`}>Edit</a>{' '}
+        <Link to={`/${id}/edit`}>Edit</Link>{' '}
         <a id={id} onClick={handleDelete}>
           Delete
         </a>
