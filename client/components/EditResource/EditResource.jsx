@@ -8,13 +8,19 @@ import { fetchResource } from '../../actions'
 
 function EditResource(props) {
   const params = useParams()
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  const resource = useSelector((state) => state.resource)
+  const currentResourceId = params.id
+  const resources = useSelector((state) => state.resources)
+  const resource = resources.filter(
+    (resource) => resource.id == currentResourceId
+  )
 
-  useEffect(() => {
-    dispatch(fetchResource(params.id))
-  }, [])
+  // const resource = useSelector((state) => state.resource)
+
+  // useEffect(() => {
+  //   dispatch(fetchResource(params.id))
+  // }, [])
 
   useEffect(() => {
     setFormData({ ...resource })
