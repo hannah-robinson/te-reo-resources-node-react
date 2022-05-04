@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchResources, removeResource } from '../../actions'
@@ -11,9 +11,10 @@ import Resource from '../Resource/Resource'
 function ResourceList() {
   const resources = useSelector((state) => state.resources)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchResources())
-  }, [resources])
+  }, [])
 
   const delResource = (id) => {
     return deleteResource(id)
