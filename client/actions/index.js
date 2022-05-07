@@ -38,7 +38,7 @@ export function updateResource(resource) {
 export function postResourceAction(resource) {
   return {
     type: POST_RESOURCE,
-    payload: { resource },
+    payload: resource,
   }
 }
 

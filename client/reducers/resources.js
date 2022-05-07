@@ -1,4 +1,9 @@
-import { SET_RESOURCES, DELETE_RESOURCE, SET_ERROR } from '../actions'
+import {
+  SET_RESOURCES,
+  POST_RESOURCE,
+  DELETE_RESOURCE,
+  SET_ERROR,
+} from '../actions'
 
 const initialState = []
 
@@ -6,6 +11,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_RESOURCES:
       return action.payload
+    case POST_RESOURCE:
+      return [...state, action.payload]
     case DELETE_RESOURCE:
       return action.payload
     case SET_ERROR:
