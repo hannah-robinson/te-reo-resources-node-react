@@ -31,7 +31,7 @@ export function deleteResourceAction(id) {
 export function updateResource(resource) {
   return {
     type: UPDATE_RESOURCE,
-    payload: { resource },
+    payload: resource,
   }
 }
 

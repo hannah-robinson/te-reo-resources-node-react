@@ -7,24 +7,23 @@ import { fetchResource } from '../../actions'
 // import style from './EditResource.module.scss'
 
 function EditResource(props) {
-  const params = useParams()
   // const dispatch = useDispatch()
-
-  const currentResourceId = params.id
-  const resources = useSelector((state) => state.resources)
-  const resource = resources.filter(
-    (resource) => resource.id == currentResourceId
-  )
-
   // const resource = useSelector((state) => state.resource)
-
   // useEffect(() => {
   //   dispatch(fetchResource(params.id))
   // }, [])
+  const params = useParams()
+
+  const currentResourceId = params.id
+  const resources = useSelector((state) => state.resources)
+  const resourceArr = resources.filter(
+    (resource) => resource.id == currentResourceId
+  )
+  const [resource] = resourceArr
 
   useEffect(() => {
     setFormData({ ...resource })
-  }, [resource])
+  }, [])
 
   const [formData, setFormData] = useState({
     resourceName: '',
@@ -50,63 +49,64 @@ function EditResource(props) {
   }
 
   return (
-    <div className="container">
+    <div className='container'>
       <form>
         <h2>Edit resource</h2>
         <p>
-          <label htmlFor="resourceName">Name: </label>
+          <label htmlFor='resourceName'>Name: </label>
           <input
-            name="resourceName"
+            name='resourceName'
             onChange={handleChange}
+            defaultValue={resource.resourceName}
             value={formData.resourceName}
           ></input>
         </p>
         <p>
-          <label htmlFor="description">Description: </label>
+          <label htmlFor='description'>Description: </label>
           <input
-            name="description"
+            name='description'
             onChange={handleChange}
             value={formData.description}
           ></input>
         </p>
         <p>
-          <label htmlFor="url">
+          <label htmlFor='url'>
             URL – copy and past a link to the resource's own website:{' '}
           </label>
           <input
-            name="url"
+            name='url'
             onChange={handleChange}
             value={formData.url}
           ></input>
         </p>
         <p>
-          <label htmlFor="image">Image file path: </label>
+          <label htmlFor='image'>Image file path: </label>
           <input
-            name="image"
+            name='image'
             onChange={handleChange}
             value={formData.image}
           ></input>
         </p>
         <p>
-          <label htmlFor="languageLevel">Language level: </label>
+          <label htmlFor='languageLevel'>Language level: </label>
           <input
-            name="languageLevel"
+            name='languageLevel'
             onChange={handleChange}
             value={formData.languageLevel}
           ></input>
         </p>
         <p>
-          <label htmlFor="medium">Type of resource: </label>
+          <label htmlFor='medium'>Type of resource: </label>
           <input
-            name="medium"
+            name='medium'
             onChange={handleChange}
             value={formData.medium}
           ></input>
         </p>
         <p>
-          <label htmlFor="cost">Price: </label>
+          <label htmlFor='cost'>Price: </label>
           <input
-            name="cost"
+            name='cost'
             onChange={handleChange}
             value={formData.cost}
           ></input>

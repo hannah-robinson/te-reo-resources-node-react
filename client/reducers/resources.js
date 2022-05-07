@@ -1,6 +1,7 @@
 import {
   SET_RESOURCES,
   POST_RESOURCE,
+  UPDATE_RESOURCE,
   DELETE_RESOURCE,
   SET_ERROR,
 } from '../actions'
@@ -13,6 +14,12 @@ const reducer = (state = initialState, action) => {
       return action.payload
     case POST_RESOURCE:
       return [...state, action.payload]
+    case UPDATE_RESOURCE:
+      return [
+        ...state.map((resource) =>
+          resource.id == action.payload.id ? action.payload : resource
+        ),
+      ]
     case DELETE_RESOURCE:
       return action.payload
     case SET_ERROR:

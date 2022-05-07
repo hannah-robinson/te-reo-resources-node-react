@@ -23,13 +23,10 @@ function SingleResource() {
 
   const currentResourceId = params.id
   const resources = useSelector((state) => state.resources)
-  const resource = resources.filter(
+  const resourceArr = resources.filter(
     (resource) => resource.id == currentResourceId
   )
-
-  // console.log('resources', resources)
-  // console.log('resource', resource)
-  // console.log('currentResourceId', currentResourceId)
+  const [resource] = resourceArr
 
   const delResource = (id) => {
     return deleteResource(id)
@@ -59,7 +56,7 @@ function SingleResource() {
   }
 
   return (
-    <div className="container">
+    <div className='container'>
       <Resource
         key={resource.id}
         resourceName={resource.resourceName}
