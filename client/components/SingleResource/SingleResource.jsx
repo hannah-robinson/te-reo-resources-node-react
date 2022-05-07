@@ -14,9 +14,7 @@ function SingleResource() {
   // useEffect(() => {
   //   dispatch(fetchResource(params.id))
   // }, [])
-
   // const resource = useSelector((state) => state.resource)
-
   // useEffect(() => {
   //   dispatch(fetchResources())
   // }, [])
