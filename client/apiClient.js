@@ -21,35 +21,11 @@ export function postResource(resource) {
 
 // Delete
 export function deleteResource(id) {
-  return (
-    request
-      .del(resourcesUrl + id)
-      .send(id)
-      // .then((response) => {
-      //   console.log(response)
-      //   if (response.body.resources) {
-      //     response.body.resources
-      //   } else {
-      //     response.body.resource
-      //   }
-      // })
-      .end((response) => {
-        console.log(response)
-        response.body
-      })
-    // .then(() => {
-    //   getResources()
-    //   return null
-    // })
-  )
+  return request
+    .del(resourcesUrl + id)
+    .send(id)
+    .then((response) => response.body.resources)
 }
-
-// export function deleteResourceSingle(id) {
-//   return request
-//     .del(resourcesUrl + id)
-//     .send(id)
-//     .then((response) => response.body.resources)
-// }
 
 // Update
 export function updateResource(id, resource) {

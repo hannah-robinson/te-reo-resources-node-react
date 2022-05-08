@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
-
-import { fetchResource } from '../../actions'
-
-// import style from './EditResource.module.scss'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 function EditResource(props) {
-  // const dispatch = useDispatch()
-  // const resource = useSelector((state) => state.resource)
-  // useEffect(() => {
-  //   dispatch(fetchResource(params.id))
-  // }, [])
   const params = useParams()
 
   const currentResourceId = params.id
   const resources = useSelector((state) => state.resources)
-  const resourceArr = resources.filter(
+  const [resource] = resources.filter(
     (resource) => resource.id == currentResourceId
   )
-  const [resource] = resourceArr
 
   useEffect(() => {
     setFormData({ ...resource })

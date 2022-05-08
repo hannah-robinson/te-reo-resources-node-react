@@ -22,7 +22,7 @@ function AddResource(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    props.submitResource(formData)
+    props.submitNewResource(formData)
     setFormData({
       resourceName: '',
       description: '',

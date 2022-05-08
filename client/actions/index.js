@@ -1,4 +1,4 @@
-import { getResources, getResource, deleteResource } from '../apiClient'
+import { getResources, getResource } from '../apiClient'
 
 export const SET_RESOURCES = 'SET_RESOURCES'
 export const SET_RESOURCE = 'SET_RESOURCE'
@@ -21,7 +21,7 @@ export function setResource(resource) {
   }
 }
 
-export function deleteResourceAction(id) {
+export function removeResource(id) {
   return {
     type: DELETE_RESOURCE,
     payload: id,
@@ -74,38 +74,5 @@ export function fetchResource(id) {
         dispatch(setError(err.message))
         console.log(err)
       })
-  }
-}
-
-// export function removeResource(id) {
-//   return (dispatch) => {
-//     return deleteResource(id)
-//       .then(() => {
-//         fetchResources()
-//         return null
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err.message))
-//         console.log(err)
-//       })
-//   }
-// }
-
-export function removeResource(id) {
-  return (dispatch) => {
-    return (
-      deleteResource(id)
-        .then(() => {
-          dispatch(deleteResourceAction(id))
-        })
-        // .then(() => {
-        //   fetchResources()
-        //   return null
-        // })
-        .catch((err) => {
-          dispatch(setError(err.message))
-          console.log(err)
-        })
-    )
   }
 }

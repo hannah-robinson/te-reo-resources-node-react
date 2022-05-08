@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const submitResource = (resource) => {
+  const submitNewResource = (resource) => {
     return postResource(resource)
       .then((resource) => {
         dispatch(postResourceAction(resource))
@@ -47,19 +47,19 @@ function App() {
   return (
     <>
       <Header />
-      <main className="container">
+      <main className='container'>
         <Routes>
-          <Route path="/" element={<ResourceList />} />
-          <Route path="/:id" element={<SingleResource />} />
+          <Route path='/' element={<ResourceList />} />
+          <Route path='/:id' element={<SingleResource />} />
           <Route
-            path="/:id/edit"
+            path='/:id/edit'
             element={
               <EditResource submitEditedResource={submitEditedResource} />
             }
           />
           <Route
-            path="/add"
-            element={<AddResource submitResource={submitResource} />}
+            path='/add'
+            element={<AddResource submitNewResource={submitNewResource} />}
           />
         </Routes>
       </main>
