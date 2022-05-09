@@ -2,7 +2,7 @@
 
 ## Overview
 
-A collection of resources for learning and practising te reo Māori. Built as a full-stack CRUD app using Node.js, Express, React, Redux and SQLite.
+A collection of resources for learning and practising te reo Māori. Built as a full-stack CRUD app using Node.js, Express, React, Redux and SQLite. (See what it looks like in the [Visuals section](https://github.com/hannah-robinson/te-reo-resources-node-react/tree/main#visuals) below.)
 
 On the homepage you can view a list of resources. You can click the edit button on any of the resources to edit its contents. You can click the delete button on any of the resources to remove it from the collection.
 
