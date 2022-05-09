@@ -27,8 +27,16 @@ On the homepage you can view a list of resources. You can click the edit button 
 
 ### Index page
 
-![Screenshot of app homepage](https://github.com/hannah-robinson/te-reo-resources-node-react/blob/main/server/public/images/screenshot-homepage.png)
+![Screenshot of app homepage](https://github.com/hannah-robinson/te-reo-resources-node-react/blob/wd03-fullstack/server/public/images/screenshot-homepage.png)
 
 ### Detail page
 
-![Screenshot from app detail page](https://github.com/hannah-robinson/te-reo-resources-node-react/blob/main/server/public/images/screenshot-detail.png)
+![Screenshot from app detail page](https://github.com/hannah-robinson/te-reo-resources-node-react/blob/wd03-fullstack/server/public/images/screenshot-detail.png)
+
+## 🌱 To do
+
+- Write tests
+- Add Auth0 to limit create, update and delete CRUD operations to admins
+- Add ability to upload images
+- Improve styling, especially on forms
+- Finish writing this README 😁
