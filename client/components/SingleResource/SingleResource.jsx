@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { fetchResources } from '../../actions'
 import Resource from '../Resource/Resource'
 
 function SingleResource() {
   const resources = useSelector((state) => state.resources)
-  const dispatch = useDispatch()
   const params = useParams()
-
-  useEffect(() => {
-    dispatch(fetchResources())
-  }, [])
 
   const [resource] = resources.filter((resource) => resource.id == params.id)
 

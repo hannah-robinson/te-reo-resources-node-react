@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { postResource, updateResource } from '../../apiClient'
+import api from '../../apiClient'
+import { fetchResources } from '../../actions/'
 
 import {
   postResourceAction,
@@ -18,6 +19,10 @@ import SingleResource from '../SingleResource/SingleResource'
 function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    dispatch(fetchResources())
+  }, [])
 
   const submitNewResource = (resource) => {
     return api
