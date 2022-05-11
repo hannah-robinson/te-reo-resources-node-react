@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 
-import resources from './resources'
+import resourcesReducer from './resources'
 
-export default combineReducers({ resources })
+export default combineReducers({ resources: resourcesReducer })

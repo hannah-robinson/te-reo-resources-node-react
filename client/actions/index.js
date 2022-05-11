@@ -1,4 +1,4 @@
-import { getResources, getResource } from '../apiClient/apiClient'
+import api from '../apiClient/'
 
 export const SET_RESOURCES = 'SET_RESOURCES'
 export const UPDATE_RESOURCE = 'UPDATE_RESOURCE'
@@ -35,7 +35,8 @@ export function setError(errMessage) {
 
 export function fetchResources() {
   return (dispatch) => {
-    return getResources()
+    return api
+      .getResources()
       .then((resources) => {
         dispatch(setResources(resources))
         return null

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import { deleteResource } from '../../apiClient'
-import { fetchResources } from '../../actions'
+import api from '../../apiClient/'
+import { fetchResources } from '../../actions/'
 
 function Resource({
   id,
@@ -21,7 +21,8 @@ function Resource({
 
   const handleDelete = (evt) => {
     evt.preventDefault()
-    return deleteResource(evt.target.id)
+    return api
+      .deleteResource(evt.target.id)
       .then(() => {
         navigate('/')
       })
@@ -32,6 +33,16 @@ function Resource({
         console.log(err)
       })
   }
+  console.log(
+    id,
+    resourceName,
+    image,
+    languageLevel,
+    medium,
+    description,
+    cost,
+    url
+  )
 
   return (
     <div className='card' key={id}>

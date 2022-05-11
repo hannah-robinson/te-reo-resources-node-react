@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchResources } from '../../actions'
+import { fetchResources } from '../../actions/'
 import Resource from '../Resource/Resource'
 
 function ResourceList() {
@@ -11,7 +11,7 @@ function ResourceList() {
   useEffect(() => {
     dispatch(fetchResources())
   }, [])
-
+  console.log(resources)
   return (
     <div className='container grid'>
       {resources.map((resource) => (

@@ -20,7 +20,8 @@ function App() {
   const navigate = useNavigate()
 
   const submitNewResource = (resource) => {
-    return postResource(resource)
+    return api
+      .postResource(resource)
       .then((resource) => {
         dispatch(postResourceAction(resource))
         return null
@@ -31,7 +32,8 @@ function App() {
   }
 
   const submitEditedResource = (id, resource) => {
-    return updateResource(id, resource)
+    return api
+      .updateResource(id, resource)
       .then((resource) => {
         dispatch(updateResourceAction(resource))
         return null
