@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams, useNavigate } from 'react-router-dom'
+
+import api from '../../apiClient'
+import { updateResource as updateResourceAction } from '../../actions'
 
 function EditResource(props) {
   const params = useParams()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const currentResourceId = params.id
   const resources = useSelector((state) => state.resources)
@@ -33,9 +38,24 @@ function EditResource(props) {
     })
   }
 
+  const submitEditedResource = (id, resource) => {
+    return api
+      .updateResource(id, resource)
+      .then((resource) => {
+        dispatch(updateResourceAction(resource))
+        return null
+      })
+      .then(() => {
+        navigate(`/${resource.id}`)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    props.submitEditedResource(params.id, formData)
+    submitEditedResource(params.id, formData)
   }
 
   return (
