@@ -10,6 +10,7 @@ const initialState = []
 const resourcesReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_RESOURCES:
+      return action.payload
     case POST_RESOURCE:
       return [...state, action.payload]
     case UPDATE_RESOURCE:

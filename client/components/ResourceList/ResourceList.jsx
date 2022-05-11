@@ -11,7 +11,6 @@ function ResourceList() {
   useEffect(() => {
     dispatch(fetchResources())
   }, [])
-  console.log(resources)
   return (
     <div className='container grid'>
       {resources.map((resource) => (

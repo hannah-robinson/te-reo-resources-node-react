@@ -33,16 +33,6 @@ function Resource({
         console.log(err)
       })
   }
-  console.log(
-    id,
-    resourceName,
-    image,
-    languageLevel,
-    medium,
-    description,
-    cost,
-    url
-  )
 
   return (
     <div className='card' key={id}>
