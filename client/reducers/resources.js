@@ -1,9 +1,4 @@
-import {
-  SET_RESOURCES,
-  POST_RESOURCE,
-  UPDATE_RESOURCE,
-  SET_ERROR,
-} from '../actions/'
+import { SET_RESOURCES, POST_RESOURCE, UPDATE_RESOURCE } from '../actions/'
 
 const initialState = []
 
@@ -19,8 +14,6 @@ const resourcesReducer = (state = initialState, action) => {
           resource.id == action.payload.id ? action.payload : resource
         ),
       ]
-    case SET_ERROR:
-      return action.errMessage
     default:
       return state
   }
