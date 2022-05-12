@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getResources()
     .then((results) => {
-      res.json({ resources: results.map((resource) => resource) })
+      res.json({ resources: results })
       return null
     })
     .catch((err) => {
@@ -114,7 +114,7 @@ router.delete('/:id', (req, res) => {
       return db.getResources()
     })
     .then((results) => {
-      res.json({ resources: results.map((resource) => resource) })
+      res.json({ resources: results })
       return null
     })
     .catch((err) => {
