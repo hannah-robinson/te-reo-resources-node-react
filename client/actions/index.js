@@ -19,7 +19,7 @@ export function updateResource(resource) {
   }
 }
 
-export function postResourceAction(resource) {
+export function post(resource) {
   return {
     type: POST_RESOURCE,
     payload: resource,
@@ -39,6 +39,21 @@ export function fetchResources() {
       .getResources()
       .then((resources) => {
         dispatch(setResources(resources))
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
+  }
+}
+
+export function postResource() {
+  return (dispatch) => {
+    return api
+      .postResource(resource)
+      .then((resource) => {
+        dispatch(post(resource))
         return null
       })
       .catch((err) => {

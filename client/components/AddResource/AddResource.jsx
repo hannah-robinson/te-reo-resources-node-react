@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 
-import api from '../../apiClient'
-import { postResourceAction } from '../../actions'
+import { postResource } from '../../actions'
 
 function AddResource() {
-  const dispatch = useDispatch()
-
   const [formData, setFormData] = useState({
     resourceName: '',
     description: '',
@@ -26,15 +22,7 @@ function AddResource() {
   }
 
   const submitNewResource = (resource) => {
-    return api
-      .postResource(resource)
-      .then((resource) => {
-        dispatch(postResourceAction(resource))
-        return null
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    postResource(resource)
   }
 
   const handleSubmit = (evt) => {
