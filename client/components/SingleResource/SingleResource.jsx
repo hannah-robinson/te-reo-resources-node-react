@@ -12,17 +12,19 @@ function SingleResource() {
 
   return (
     <div className='container'>
-      <Resource
-        key={resource.id}
-        resourceName={resource.resourceName}
-        image={resource.image}
-        description={resource.description}
-        languageLevel={resource.languageLevel}
-        medium={resource.medium}
-        cost={resource.cost}
-        url={resource.url}
-        id={resource.id}
-      />
+      {resource && (
+        <Resource
+          key={resource.id}
+          resourceName={resource.resourceName}
+          image={resource.image}
+          description={resource.description}
+          languageLevel={resource.languageLevel}
+          medium={resource.medium}
+          cost={resource.cost}
+          url={resource.url}
+          id={resource.id}
+        />
+      )}
     </div>
   )
 }
