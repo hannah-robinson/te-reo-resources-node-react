@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { postResource } from '../../actions'
 
 function AddResource() {
+  const dispatch = useDispatch()
   const [formData, setFormData] = useState({
     resourceName: '',
     description: '',
@@ -22,7 +24,7 @@ function AddResource() {
   }
 
   const submitNewResource = (resource) => {
-    postResource(resource)
+    dispatch(postResource(resource))
   }
 
   const handleSubmit = (evt) => {
