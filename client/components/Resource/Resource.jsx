@@ -23,7 +23,8 @@ function Resource({
     evt.preventDefault()
     return api
       .deleteResource(evt.target.id)
-      .then(() => {
+      .then((resources) => {
+        // dispatch(setResources())
         navigate('/')
       })
       .then(() => {

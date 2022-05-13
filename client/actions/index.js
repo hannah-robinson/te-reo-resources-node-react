@@ -12,7 +12,7 @@ export function setResources(resources) {
   }
 }
 
-export function updateResource(resource) {
+export function update(resource) {
   return {
     type: UPDATE_RESOURCE,
     payload: resource,
@@ -48,12 +48,27 @@ export function fetchResources() {
   }
 }
 
-export function postResource() {
+export function postResource(resource) {
   return (dispatch) => {
     return api
       .postResource(resource)
       .then((resource) => {
         dispatch(post(resource))
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
+  }
+}
+
+export function updateResource(id, resource) {
+  return (dispatch) => {
+    return api
+      .updateResource(id, resource)
+      .then(() => {
+        dispatch(update(resource))
         return null
       })
       .catch((err) => {

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import api from '../../apiClient'
-import { updateResource as updateResourceAction } from '../../actions'
+import { updateResource } from '../../actions'
 
 function EditResource(props) {
   const params = useParams()
@@ -17,8 +16,10 @@ function EditResource(props) {
   )
 
   useEffect(() => {
-    setFormData({ ...resource })
-  }, [])
+    if (resource) {
+      setFormData({ ...resource })
+    }
+  }, [resources])
 
   const [formData, setFormData] = useState({
     resourceName: '',
@@ -39,18 +40,8 @@ function EditResource(props) {
   }
 
   const submitEditedResource = (id, resource) => {
-    return api
-      .updateResource(id, resource)
-      .then((resource) => {
-        dispatch(updateResourceAction(resource))
-        return null
-      })
-      .then(() => {
-        navigate(`/${resource.id}`)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    dispatch(updateResource(id, resource))
+    navigate(`/${resource.id}`)
   }
 
   const handleSubmit = (evt) => {
@@ -68,7 +59,6 @@ function EditResource(props) {
             <input
               name='resourceName'
               onChange={handleChange}
-              defaultValue={resource.resourceName}
               value={formData.resourceName}
             ></input>
           </p>
