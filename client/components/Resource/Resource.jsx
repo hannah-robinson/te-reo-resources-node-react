@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import api from '../../apiClient/'
-import { fetchResources } from '../../actions/'
+import { fetchResources, deleteResource } from '../../actions/'
 
 function Resource({
   id,
@@ -21,18 +21,8 @@ function Resource({
 
   const handleDelete = (evt) => {
     evt.preventDefault()
-    return api
-      .deleteResource(evt.target.id)
-      .then((resources) => {
-        // dispatch(setResources())
-        navigate('/')
-      })
-      .then(() => {
-        dispatch(fetchResources())
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    dispatch(deleteResource(evt.target.id))
+    navigate('/')
   }
 
   return (

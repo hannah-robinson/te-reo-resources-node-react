@@ -3,6 +3,7 @@ import api from '../apiClient/'
 export const SET_RESOURCES = 'SET_RESOURCES'
 export const UPDATE_RESOURCE = 'UPDATE_RESOURCE'
 export const POST_RESOURCE = 'POST_RESOURCE'
+export const DELETE_RESOURCE = 'DELETE_RESOURCE'
 export const SET_ERROR = 'SET_ERROR'
 
 export function setResources(resources) {
@@ -23,6 +24,13 @@ export function post(resource) {
   return {
     type: POST_RESOURCE,
     payload: resource,
+  }
+}
+
+export function del(id) {
+  return {
+    type: DELETE_RESOURCE,
+    payload: id,
   }
 }
 
@@ -70,6 +78,20 @@ export function updateResource(id, resource) {
       .then(() => {
         dispatch(update(resource))
         return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+        console.log(err)
+      })
+  }
+}
+
+export function deleteResource(id) {
+  return (dispatch) => {
+    return api
+      .deleteResource(id)
+      .then(() => {
+        dispatch(del(id))
       })
       .catch((err) => {
         dispatch(setError(err.message))

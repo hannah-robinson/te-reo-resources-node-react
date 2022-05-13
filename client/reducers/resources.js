@@ -1,4 +1,9 @@
-import { SET_RESOURCES, POST_RESOURCE, UPDATE_RESOURCE } from '../actions/'
+import {
+  SET_RESOURCES,
+  POST_RESOURCE,
+  UPDATE_RESOURCE,
+  DELETE_RESOURCE,
+} from '../actions/'
 
 const initialState = []
 
@@ -14,6 +19,8 @@ const resourcesReducer = (state = initialState, action) => {
           resource.id == action.payload.id ? action.payload : resource
         ),
       ]
+    case DELETE_RESOURCE:
+      return [...state.filter((resource) => resource.id != action.payload)]
     default:
       return state
   }
