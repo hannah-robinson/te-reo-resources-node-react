@@ -37,6 +37,7 @@ On the homepage you can view a list of resources. You can click the edit button 
 
 - Write tests
 - Add Auth0 to limit create, update and delete CRUD operations to admins
-- Add ability to upload images
+- Add form validation
 - Improve styling, especially on forms
+- Add ability to upload images
 - Finish writing this README 😁
