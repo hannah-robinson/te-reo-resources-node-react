@@ -10,12 +10,13 @@ On the homepage you can view a list of resources. You can click the edit button 
 
 - HTML5
 - CSS3
+- SCSS (Sass)
 - JavaScript (ES6)
 - React
 - Redux
-- Node JS
+- Node.js
 - Express
-- SQLite
+- PostgreSQL
 - Knex
 - Git
 - GitHub

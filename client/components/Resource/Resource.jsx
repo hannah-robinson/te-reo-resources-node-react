@@ -30,7 +30,7 @@ function Resource({
       <h2>{resourceName}</h2>
       <img src={image} />
       <p>{description}</p>
-      <div className='card-details'>
+      <div className='card__details'>
         <p>
           <em>
             <strong>Language level:</strong> {languageLevel}

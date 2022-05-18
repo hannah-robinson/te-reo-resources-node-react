@@ -257,11 +257,11 @@ main {
 
   color: hsl(var(--clr-wai-3));
   font-size: var(--fs-700);
-}
 
-.logo a {
-  font-size: var(--fs-700);
-  color: hsl(var(--clr-accent));
+  a {
+    font-size: var(--fs-700);
+    color: hsl(var(--clr-accent));
+  }
 }
 
 /* Primary navigation */
@@ -272,11 +272,11 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
-}
 
-.primary-navigation a {
-  text-decoration: none;
-  color: hsl(var(--clr-dark));
+  a {
+    text-decoration: none;
+    color: hsl(var(--clr-dark));
+  }
 }
 
 .underline-indicators * {
@@ -321,29 +321,30 @@ footer {
   color: hsl(var(--clr-dark));
   list-style: none;
   padding: 1rem;
+
+  p {
+    display: grid;
+    place-content: center;
+    padding-bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding-right: 1rem;
+  }
+
+  a {
+    color: hsl(var(--clr-dark));
+    text-decoration: none;
+    font-size: var(--fs-500);
+  }
+
+  a:hover,
+  a:focus {
+    color: hsl(var(--clr-accent));
+  }
 }
 
-footer p {
-  display: grid;
-  place-content: center;
-  padding-bottom: 0;
-}
-
-footer ul {
-  list-style: none;
-  padding-right: 1rem;
-}
-
-footer a {
-  color: hsl(var(--clr-dark));
-  text-decoration: none;
-  font-size: var(--fs-500);
-}
-
-footer a:hover,
-footer a:focus {
-  color: hsl(var(--clr-accent));
-}
 /* ===================
        7. Components
      =================== */
@@ -360,39 +361,39 @@ footer a:focus {
   border-radius: 1rem;
   overflow: scroll; /* needed to make bottom corners rounded due to card-content */
   transition: transform 500ms ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    padding: 1rem;
+  }
+
+  a {
+    display: inline-block;
+    border-radius: 10px;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: 2px hsl(var(--clr-accent), 0.8);
+    background-color: hsl(var(--clr-accent), 0.8);
+    color: hsl(var(--clr-white));
+    cursor: pointer;
+    margin-bottom: 25px;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    transform: scale(1.05);
+    transition: transform 500ms ease;
+    background-color: hsl(var(--clr-accent), 0.7);
+    border: 2px hsl(var(--clr-accent), 0.7);
+  }
 }
 
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  padding: 1rem;
-}
-
-.card-details {
+.card__details {
   padding-block: 1rem;
-}
-
-.card a {
-  display: inline-block;
-  border-radius: 10px;
-  padding-block: 5px;
-  padding-inline: 10px;
-  border: 2px hsl(var(--clr-accent), 0.8);
-  background-color: hsl(var(--clr-accent), 0.8);
-  color: hsl(var(--clr-white));
-  cursor: pointer;
-  margin-bottom: 25px;
-}
-
-.card a:hover,
-.card a:focus {
-  text-decoration: none;
-  transform: scale(1.05);
-  transition: transform 500ms ease;
-  background-color: hsl(var(--clr-accent), 0.7);
-  border: 2px hsl(var(--clr-accent), 0.7);
 }
 
 .crud-links {
@@ -459,13 +460,13 @@ main {
   border-radius: 8px;
   border: none;
   transition: transform 500ms ease;
-}
 
-#submit:hover,
-#submit:focus {
-  cursor: pointer;
-  background-color: hsl(var(--clr-accent), 0.7);
-  transform: scale(1.05);
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: hsl(var(--clr-accent), 0.7);
+    transform: scale(1.05);
+  }
 }
 
 .col-25 {
