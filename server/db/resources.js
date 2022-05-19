@@ -32,7 +32,7 @@ function getResource(id, db = connection) {
 
 // Create
 function addResource(resource, db = connection) {
-  return db('resources').insert(resource, ['id'])
+  return db('resources').insert(resource, ['id']).returning('id')
 }
 
 // Update

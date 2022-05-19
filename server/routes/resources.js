@@ -55,9 +55,8 @@ router.post('/', (req, res) => {
     medium,
     cost,
   })
-    .then((ids) => {
-      const newResourceId = ids[0]
-      return db.getResource(newResourceId)
+    .then((id) => {
+      return db.getResource(id)
     })
     .then((newResource) => {
       res.json(newResource)
