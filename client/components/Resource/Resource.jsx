@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import api from '../../apiClient/'
-import { fetchResources, deleteResource } from '../../actions/'
+import { deleteResource } from '../../actions/'
 
 function Resource({
   id,

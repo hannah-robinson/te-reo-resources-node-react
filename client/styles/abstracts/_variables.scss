@@ -1,0 +1,35 @@
+/* Custom properties */
+
+:root {
+  /* Colours */
+  --clr-dark: 0, 0%, 11%;
+  --clr-white: 0, 0%, 100%;
+  --clr-light-grey: 0, 0%, 97%;
+  --clr-accent: 0, 100%, 42%;
+
+  /* Font-sizes */
+  --fs-900: 9.375rem;
+  --fs-800: 6.25rem;
+  --fs-700: 3.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* Font-families */
+  --ff-sans-normal: 'Inter', sans-serif;
+}
+
+@media (max-width: 35em) {
+  :root {
+    --fs-900: 6.25rem;
+    --fs-800: 3.5rem;
+    --fs-700: 2rem;
+    --fs-600: 1.75rem;
+    --fs-500: 1.5rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+  }
+}

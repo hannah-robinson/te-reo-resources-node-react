@@ -1,26 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import style from './Header.module.scss'
-
 function Header() {
   return (
     <div>
-      <header className="primary-header flex">
-        <div className="logo">
+      <header className='primary-header flex'>
+        <div className='logo'>
           <Link to={'/'}>
-            <i className="fa-solid fa-comment-dots"></i>
+            <i className='fa-solid fa-comment-dots'></i>
           </Link>
         </div>
         <nav>
           <ul
-            id="primary-navigation"
-            className="primary-navigation underline-indicators flex nav-link"
+            id='primary-navigation'
+            className='primary-navigation underline-indicators flex nav-link'
           >
-            <li key="home">
+            <li key='home'>
               <Link to={'/'}>All Resources</Link>
             </li>
-            <li key="add">
+            <li key='add'>
               <Link to={'/add'}>Add a Resource</Link>
             </li>
           </ul>

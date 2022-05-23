@@ -1,0 +1,35 @@
+@use '../abstracts/' as *;
+
+/* Footer */
+
+footer {
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(var(--clr-light-grey));
+  color: hsl(var(--clr-dark));
+  list-style: none;
+  padding: 1rem;
+
+  p {
+    display: grid;
+    place-content: center;
+    padding-bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding-right: 1rem;
+  }
+
+  a {
+    color: hsl(var(--clr-dark));
+    text-decoration: none;
+    font-size: var(--fs-500);
+  }
+
+  a:hover,
+  a:focus {
+    color: hsl(var(--clr-accent));
+  }
+}
