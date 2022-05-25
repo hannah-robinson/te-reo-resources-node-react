@@ -3,11 +3,35 @@
 /* Forms */
 
 form {
-  width: 70%;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  form {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  form {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1400px) {
+  form {
+    width: 50%;
+  }
+}
+
+.form__container {
+  display: grid;
+  place-items: center;
+  padding-block: 0.5em;
 }
 
 .form__group {
-  padding: 0.5em;
+  padding-block: 0.5em;
 }
 
 .form__submit {

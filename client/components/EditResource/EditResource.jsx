@@ -50,7 +50,7 @@ function EditResource(props) {
   }
 
   return (
-    <div className='container center'>
+    <div className='form__container'>
       {resource && (
         <form>
           <h2>Edit resource</h2>

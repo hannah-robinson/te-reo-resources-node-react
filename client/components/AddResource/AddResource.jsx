@@ -42,7 +42,7 @@ function AddResource() {
   }
 
   return (
-    <div className='container center'>
+    <div className='form__container'>
       <form>
         <h2>Add a new resource to the collection</h2>
         <div className='form__group'>
