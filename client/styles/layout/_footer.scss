@@ -28,6 +28,10 @@ footer {
     font-size: var(--fs-500);
   }
 
+  a:visited {
+    color: hsl(var(--clr-dark));
+  }
+
   a:hover,
   a:focus {
     color: hsl(var(--clr-accent));
