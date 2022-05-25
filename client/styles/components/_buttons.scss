@@ -1,43 +1,53 @@
 @use '../abstracts/' as *;
 
-.crud-links {
-  a {
-    border: 2px solid grey;
-    background-color: hsl(var(--clr-white));
-    color: grey;
-    padding: 4px;
-    font-size: var(--fs-200);
-  }
-
-  a:hover,
-  a:focus {
-    background-color: grey;
-    border: 2px solid grey;
-    color: hsl(var(--clr-white));
-  }
-}
-
-.btn,
-Link .btn {
+.btn {
   display: inline-block;
   border-radius: 10px;
   padding-block: 5px;
   padding-inline: 10px;
   cursor: pointer;
   margin-bottom: 25px;
+  font-size: var(--fs-200);
+  transition: transform 500ms ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    transform: scale(1.05);
+  }
+}
+
+.btn--resource-link {
+  border: 2px hsl(var(--clr-accent), 0.8);
+  background-color: hsl(var(--clr-accent), 0.8);
+  color: hsl(var(--clr-white));
+
+  &:visited {
+    color: hsl(var(--clr-white));
+  }
+
+  &:hover,
+  &:focus {
+    background-color: hsl(var(--clr-accent), 0.7);
+    border: 2px hsl(var(--clr-accent), 0.7);
+  }
+}
+
+.btn--crud {
   border: 2px solid grey;
   background-color: hsl(var(--clr-white));
   color: grey;
   padding: 4px;
   font-size: var(--fs-200);
-}
 
-.btn:hover,
-.btn:focus {
-  background-color: grey;
-  border: 2px solid grey;
-  color: hsl(var(--clr-white));
-  text-decoration: none;
-  transform: scale(1.05);
-  transition: transform 500ms ease;
+  &:visited {
+    color: grey;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: grey;
+    border: 2px solid grey;
+    color: hsl(var(--clr-white));
+  }
 }

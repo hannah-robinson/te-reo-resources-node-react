@@ -42,68 +42,80 @@ function AddResource() {
   }
 
   return (
-    <div className='container'>
+    <div className='container center'>
       <form>
         <h2>Add a new resource to the collection</h2>
-        <p>
-          <label htmlFor='resourceName'>Name: </label>
+        <div className='form__group'>
+          <label htmlFor='resourceName'>Name</label>
           <input
             name='resourceName'
             onChange={handleChange}
             value={formData.resourceName}
+            required
+            minlength='2'
+            autofocus
           ></input>
-        </p>
-        <p>
-          <label htmlFor='description'>Description: </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='description'>Description</label>
           <input
             name='description'
             onChange={handleChange}
             value={formData.description}
           ></input>
-        </p>
-        <p>
-          <label htmlFor='url'>
-            URL – copy and past a link to the resource's own website:{' '}
-          </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='url'>URL</label>
           <input
             name='url'
             onChange={handleChange}
             value={formData.url}
+            placeholder="Copy and paste a link to the resource's own website"
+            required
+            minlength='6'
           ></input>
-        </p>
-        <p>
-          <label htmlFor='image'>Image file path: </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='image'>Image file path</label>
           <input
             name='image'
             onChange={handleChange}
             value={formData.image}
           ></input>
-        </p>
-        <p>
-          <label htmlFor='languageLevel'>Language level: </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='languageLevel'>Language level</label>
           <input
             name='languageLevel'
             onChange={handleChange}
             value={formData.languageLevel}
+            required
+            minlength='2'
           ></input>
-        </p>
-        <p>
-          <label htmlFor='medium'>Type of resource: </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='medium'>Type of resource</label>
           <input
             name='medium'
             onChange={handleChange}
             value={formData.medium}
+            required
+            minlength='2'
           ></input>
-        </p>
-        <p>
-          <label htmlFor='cost'>Price: </label>
+        </div>
+        <div className='form__group'>
+          <label htmlFor='cost'>Price</label>
           <input
             name='cost'
             onChange={handleChange}
             value={formData.cost}
+            required
+            minlength='2'
           ></input>
-        </p>
-        <button onClick={handleSubmit}>Save</button>
+        </div>
+        <button className='form__submit' onClick={handleSubmit}>
+          Save
+        </button>
       </form>
     </div>
   )

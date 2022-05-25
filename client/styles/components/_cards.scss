@@ -23,26 +23,26 @@
     padding: 1rem;
   }
 
-  a {
-    display: inline-block;
-    border-radius: 10px;
-    padding-block: 5px;
-    padding-inline: 10px;
-    border: 2px hsl(var(--clr-accent), 0.8);
-    background-color: hsl(var(--clr-accent), 0.8);
-    color: hsl(var(--clr-white));
-    cursor: pointer;
-    margin-bottom: 25px;
-  }
+  // a {
+  //   display: inline-block;
+  //   border-radius: 10px;
+  //   padding-block: 5px;
+  //   padding-inline: 10px;
+  //   border: 2px hsl(var(--clr-accent), 0.8);
+  //   background-color: hsl(var(--clr-accent), 0.8);
+  //   color: hsl(var(--clr-white));
+  //   cursor: pointer;
+  //   margin-bottom: 25px;
+  // }
 
-  a:hover,
-  a:focus {
-    text-decoration: none;
-    transform: scale(1.05);
-    transition: transform 500ms ease;
-    background-color: hsl(var(--clr-accent), 0.7);
-    border: 2px hsl(var(--clr-accent), 0.7);
-  }
+  // a:hover,
+  // a:focus {
+  //   text-decoration: none;
+  //   transform: scale(1.05);
+  //   transition: transform 500ms ease;
+  //   background-color: hsl(var(--clr-accent), 0.7);
+  //   border: 2px hsl(var(--clr-accent), 0.7);
+  // }
 }
 
 .card__details {

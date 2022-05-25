@@ -46,12 +46,14 @@ function Resource({
           </em>
         </p>
       </div>
-      <a href={url}>
+      <a className='btn btn--resource-link' href={url}>
         Visit site <i className='fa-solid fa-arrow-up-right-from-square'></i>
       </a>
-      <div className='crud-links'>
-        <Link to={`/${id}/edit`}>Edit</Link>{' '}
-        <a id={id} onClick={handleDelete}>
+      <div>
+        <Link className='btn btn--crud' to={`/${id}/edit`}>
+          Edit
+        </Link>{' '}
+        <a id={id} className='btn btn--crud' onClick={handleDelete}>
           Delete
         </a>
       </div>
