@@ -75,7 +75,7 @@
   },
   "dependencies": {
     "@vscode/sqlite3": "^5.0.7",
-    "express": "^4.17.1",
+    "express": "^4.22.2",
     "knex": "^2.4.0",
     "pg": "^8.5.1",
     "superagent": "^6.1.0"
